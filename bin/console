@@ -14,7 +14,7 @@ reddit = Reddit.new
 redd_file_path = File.join(Dir.home, '.redd.key')
 if File.exist?(redd_file_path)
   auth = Redd::AuthStrategies::Web.new(
-    client_id: 'P4txR-D6TzF8cg',
+    client_id: 'zE7cu0fpk7-T_yFdvXUP-g',
     redirect_uri: 'http://localhost:8000/redirect'
   )
   access = Redd::Models::Access.new(refresh_token: File.read(redd_file_path))
@@ -50,7 +50,7 @@ else
     res.set_redirect(
       WEBrick::HTTPStatus[302],
       Redd.url(
-        client_id: 'P4txR-D6TzF8cg',
+        client_id: 'zE7cu0fpk7-T_yFdvXUP-g',
         response_type: 'code',
         state: '0',
         redirect_uri: 'http://localhost:8000/redirect',
@@ -75,7 +75,7 @@ else
       server.stop
       reddit.session = Redd.it(
         user_agent: "Ruby:Redd-Quickstart:v#{Redd::VERSION} (by /u/Mustermind)",
-        client_id: 'P4txR-D6TzF8cg',
+        client_id: 'zE7cu0fpk7-T_yFdvXUP-g',
         redirect_uri: 'http://localhost:8000/redirect',
         code: req.query['code'],
         auto_refresh: true
